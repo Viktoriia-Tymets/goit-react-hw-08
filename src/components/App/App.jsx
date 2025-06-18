@@ -3,12 +3,12 @@ import SearchBox from "../SearchBox/SearchBox";
 import ContactList from "../ContactList/ContactList";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchContacts } from "../../redux/contactsOps";
+import { fetchContacts } from "../../redux/contacts/contactsOps";
 import {
   selectContacts,
   selectLoading,
   selectError,
-} from "../../redux/contactsSlice";
+} from "../../redux/contacts/selectors";
 import css from "./App.module.css";
 
 export default function App() {
