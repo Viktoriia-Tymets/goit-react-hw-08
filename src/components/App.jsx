@@ -6,6 +6,7 @@ import { refreshUser } from "../redux/auth/operations";
 import { selectIsRefreshing } from "../redux/auth/selectors";
 import RestrictedRoute from "./RestrictedRoute";
 import PrivateRoute from "./PrivateRoute";
+import { Toaster } from "react-hot-toast";
 
 const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
 const RegisterPage = lazy(() =>
@@ -55,6 +56,7 @@ export default function App() {
           />
         </Routes>
       </Suspense>
+      <Toaster position="top-right" reverseOrder={false} />
     </Layout>
   );
 }

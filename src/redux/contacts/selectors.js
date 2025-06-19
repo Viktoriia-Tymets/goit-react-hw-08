@@ -7,12 +7,15 @@ export const selectError = (state) => state.contacts.error;
 export const selectFilteredContacts = createSelector(
     [selectContacts, selectNameFilter],
     (contacts, filterValue) => {
-      console.log('selectFilteredContacts', Date.now());
-      const normalizedFilter = (filterValue || "").toLowerCase();
-        return contacts.filter(
-      (contact) =>
+      return contacts.filter((contact) => {
+      const nameMatch =
         typeof contact.name === "string" &&
-        contact.name.toLowerCase().includes(normalizedFilter)
-    );
+        contact.name.toLowerCase().includes(normalizedFilter);
+      const phoneMatch =
+        typeof contact.phone === "string" &&
+        contact.phone.toLowerCase().includes(normalizedFilter);
+
+      return nameMatch || phoneMatch;
+    });
   }
 );
