@@ -1,9 +1,16 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const setAuthHeader = (value) => {
-    axios.defaults.headers.common.Authorization = value;
-}
+axios.defaults.baseURL = 'https://connections-api.goit.global/';
+
+const token = {
+  set(token) {
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  },
+  unset() {
+    axios.defaults.headers.common.Authorization = '';
+  },
+};
 
 export const register = createAsyncThunk(
     'auth/register',

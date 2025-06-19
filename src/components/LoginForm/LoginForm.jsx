@@ -3,15 +3,16 @@ import { Formik, Form, Field } from "formik";
 import { logIn } from "../../redux/auth/operations";
 import css from "./LoginForm.module.css";
 
-export default function LoginForm() {}
-const dispatch = useDispatch();
+export default function LoginForm() {
+  const dispatch = useDispatch();
 
-const handleSubmit = (values, actions) => {
-  dispatch(logIn(values))
-    .unwrap()
-    .then(() => console.log("Login success"));
-  actions.resetForm();
-
+  const handleSubmit = (values, actions) => {
+    dispatch(logIn(values))
+      .unwrap()
+      .then(() => console.log("Login success"))
+      .catch((error) => console.log("Login failed", error));
+    actions.resetForm();
+  };
   return (
     <Formik
       initialValues={{
@@ -33,4 +34,4 @@ const handleSubmit = (values, actions) => {
       </Form>
     </Formik>
   );
-};
+}
