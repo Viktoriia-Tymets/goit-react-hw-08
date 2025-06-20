@@ -6,7 +6,8 @@ export const selectError = (state) => state.contacts.error;
 
 export const selectFilteredContacts = createSelector(
     [selectContacts, selectNameFilter],
-    (contacts, filterValue) => {
+  (contacts, filterValue) => {
+      const normalizedFilter = (filterValue || "").toLowerCase();
       return contacts.filter((contact) => {
       const nameMatch =
         typeof contact.name === "string" &&
