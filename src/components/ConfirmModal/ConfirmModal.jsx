@@ -20,7 +20,7 @@ export default function ConfirmModal({
       }}
     >
       <p>{message}</p>
-      <div className={css.buttons}>
+      <div>
         <button onClick={onConfirm}>Yes</button>
         <button onClick={onRequestClose}>No</button>
       </div>

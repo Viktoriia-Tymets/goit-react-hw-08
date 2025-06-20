@@ -14,23 +14,23 @@ export default function Contact({ contact }) {
   const handleConfirmDelete = () => {
     dispatch(deleteContact(contact.id));
     closeModal();
-
-    return (
-      <div className={css.contact}>
-        <p className={css.contactInfo}>
-          {contact.name}: {contact.phone}
-        </p>
-        <button className={css.deleteButton} onClick={openModal}>
-          Delete
-        </button>
-
-        <ConfirmModal
-          isOpen={isModalOpen}
-          onRequestClose={closeModal}
-          onConfirm={handleConfirmDelete}
-          message={`Are you sure you want to delete this contact "${contact.name}"?`}
-        />
-      </div>
-    );
   };
+
+  return (
+    <div className={css.contact}>
+      <p className={css.contactInfo}>
+        {contact.name}: {contact.phone}
+      </p>
+      <button className={css.deleteButton} onClick={openModal}>
+        Delete
+      </button>
+
+      <ConfirmModal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        onConfirm={handleConfirmDelete}
+        message={`Are you sure you want to delete this contact "${contact.name}"?`}
+      />
+    </div>
+  );
 }
